@@ -3,28 +3,28 @@
     --secondaryFont: 'Roboto Condensed', sans-serif;
     --primaryColor: #1B90FC;
     --white: #FFFFFF;
+    --black: #202020;
 }
 
 body {
-    border: 10px solid red;
     margin: 0;
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Roboto Condensed', sans-serif; */
     font-family: var(--mainFont);
 }
 
-.wrapper {
-    /* 1920 - (128 * 2)  */
-    max-inline-size: 1664;
-    /* 320 480 768 1024 1240 1366 1440 1920*/
-    margin: auto;
-    border: 1px solid green;
-    overflow: hidden;
-}
-
 p,
 h1 {
     margin: 0;
+}
+
+.wrapper {
+    /* 1920 - (128 * 2)  */
+    max-inline-size: 1664px;
+    /* 320 480 768 1024 1240 1366 1440 1920*/
+    margin: auto;
+    /* border: 1px solid green; */
+    overflow: hidden;
 }
 
 .hero h1 {
@@ -56,4 +56,42 @@ button {
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1rem;
+}
+
+.hero-content {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: row;
+    block-size: 48rem;
+    align-items: center;
+}
+
+.card {
+    max-inline-size: 25.75rem;
+    color: var(--white);
+    z-index: 2;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    inline-size: 50%;
+    display: block;
+    background-color: var(--black);
+    inset-block: 0;
+    position: absolute;
+    border: 1px solid blue;
+    clip-path: polygon(0 0, calc(100% - 151px) 0, 100% 100%, 0 100%);
+}
+
+.hero {
+    /* border: 1px solid red; */
+    background-color: var(--black);
+    background-image: url('../images/banner-disney-plus-loki.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
+    /* background-size: cover; */
+    /* z-index: 1; */
 }
