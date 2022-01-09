@@ -41,6 +41,11 @@ h1 {
 .hero p {
     font-size: var(--body2-regular);
     line-height: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 img {
@@ -88,15 +93,12 @@ img {
     background-size: 100% 274px;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%);
     block-size: 640px;
+    transition: 0.4s;
 }
 
 @media screen and (min-width:768px) {
     .hero {
-        /* background-color: var(--black); */
-        /* background-repeat: no-repeat; */
-        /* position: relative; */
         background-size: 100% 584px;
-        /* clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%); */
         block-size: 1024px;
     }
     .wrapper {
@@ -106,23 +108,24 @@ img {
     img {
         block-size: 4.21rem;
     }
+    .hero p {
+        display: block;
+        overflow: visible;
+    }
 }
 
 @media screen and (min-width:1366px) {
     .wrapper {
         max-inline-size: 1664px;
         top: 0;
-        /* margin: auto; */
-        /* overflow: hidden; */
     }
     .card {
         max-inline-size: 25.75rem;
     }
     .hero {
-        /* background-repeat: no-repeat; */
-        background-position: center;
-        /* position: relative; */
+        background-position: 50% 50%;
         background-size: auto;
+        background-size: 2000px 768px;
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
         block-size: auto;
     }
@@ -139,7 +142,6 @@ img {
         display: flex;
         flex-direction: row;
         margin-block-start: 0;
-        /* block-size: 48rem; */
         align-items: center;
     }
     .button {
