@@ -4,12 +4,14 @@
     --primaryColor: #1B90FC;
     --white: #FFFFFF;
     --black: #202020;
+    --headLine1: 2.5rem;
+    --headLine2: 1.5rem;
+    --body1-regular: 1rem;
+    --body2-regular: 0.875rem;
 }
 
 body {
     margin: 0;
-    /* font-family: 'Roboto', sans-serif; */
-    /* font-family: 'Roboto Condensed', sans-serif; */
     font-family: var(--mainFont);
 }
 
@@ -23,19 +25,21 @@ h1 {
     max-inline-size: 1664px;
     /* 320 480 768 1024 1240 1366 1440 1920*/
     margin: auto;
-    /* border: 1px solid green; */
     overflow: hidden;
+    position: relative;
+    top: 274px;
+    background-color: var(--black);
 }
 
 .hero h1 {
     font-family: var(--secondaryFont);
-    font-size: 2.5rem;
+    font-size: var(--headLine2);
     margin-block-end: 0.5rem;
     text-transform: uppercase;
 }
 
 .hero p {
-    font-size: 1rem;
+    font-size: var(--body2-regular);
     line-height: 1.5rem;
 }
 
@@ -43,9 +47,10 @@ img {
     /* El 100% Hace referencia al contenedor, en este caso al wrapper */
     max-inline-size: 100%;
     vertical-align: middle;
+    block-size: 2rem;
 }
 
-button {
+.button {
     background-color: var(--primaryColor);
     color: var(--white);
     padding-block: 1rem;
@@ -56,42 +61,97 @@ button {
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1rem;
+    inline-size: 100%;
 }
 
 .hero-content {
-    /* border: 1px solid green; */
-    display: flex;
-    flex-direction: row;
     block-size: 48rem;
-    align-items: center;
+    margin-block-start: 20px;
+    margin-inline: 20px;
 }
 
 .card {
-    max-inline-size: 25.75rem;
     color: var(--white);
     z-index: 2;
     position: relative;
 }
 
-.hero::before {
-    content: '';
-    inline-size: 50%;
-    display: block;
-    background-color: var(--black);
-    inset-block: 0;
-    position: absolute;
-    border: 1px solid blue;
-    clip-path: polygon(0 0, calc(100% - 151px) 0, 100% 100%, 0 100%);
+.card-description {
+    margin-block-start: 1.58rem;
+    margin-block-end: 1.58rem;
 }
 
 .hero {
-    /* border: 1px solid red; */
     background-color: var(--black);
-    background-image: url('../images/banner-disney-plus-loki.png');
     background-repeat: no-repeat;
-    background-position: center;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
+    background-size: 100% 274px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%);
     /* background-size: cover; */
     /* z-index: 1; */
+    block-size: 640px;
+}
+
+@media screen and (min-width:768px) {
+    .hero {
+        background-color: var(--black);
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: 100% 584px;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%);
+        block-size: 1024px;
+    }
+    .wrapper {
+        top: 584px;
+        background-color: transparent;
+    }
+    img {
+        block-size: 4.21rem;
+    }
+}
+
+@media screen and (min-width:1366px) {
+    .wrapper {
+        top: 0;
+        max-inline-size: 1664px;
+        margin: auto;
+        overflow: hidden;
+    }
+    .card {
+        max-inline-size: 25.75rem;
+    }
+    .hero {
+        border: 1px solid red;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        background-size: auto;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
+        block-size: auto;
+    }
+    .hero::before {
+        content: '';
+        inline-size: 50%;
+        display: block;
+        background-color: var(--black);
+        inset-block: 0;
+        position: absolute;
+        clip-path: polygon(0 0, calc(100% - 151px) 0, 100% 100%, 0 100%);
+    }
+    .hero-content {
+        display: flex;
+        flex-direction: row;
+        margin-block-start: 0;
+        block-size: 48rem;
+        align-items: center;
+    }
+    .button {
+        inline-size: auto;
+    }
+    .hero h1 {
+        font-size: var(--headLine1);
+    }
+    .hero p {
+        font-size: var(--body1-regular);
+    }
 }
