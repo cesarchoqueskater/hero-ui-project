@@ -1,4 +1,3 @@
 import loadMovies from './content.js'
 
-// loadMovies()
-setInterval(loadMovies, 5000)
+setInterval(loadMovies, 4000)
