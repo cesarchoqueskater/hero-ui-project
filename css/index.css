@@ -15,8 +15,8 @@ body {
     font-family: var(--mainFont);
 }
 
-p,
-h1 {
+.card-title,
+.card-info {
     margin: 0;
 }
 
@@ -31,14 +31,14 @@ h1 {
     background-color: var(--black);
 }
 
-.hero h1 {
+.hero .card-title {
     font-family: var(--secondaryFont);
     font-size: var(--headLine2);
     margin-block-end: 0.5rem;
     text-transform: uppercase;
 }
 
-.hero p {
+.hero .card-info {
     font-size: var(--body2-regular);
     line-height: 1.5rem;
     display: -webkit-box;
@@ -46,13 +46,15 @@ h1 {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: 0.4s;
 }
 
-img {
+.card-image {
     /* El 100% Hace referencia al contenedor, en este caso al wrapper */
     max-inline-size: 100%;
     vertical-align: middle;
     block-size: 2rem;
+    transition: 0.4s;
 }
 
 .button {
@@ -71,8 +73,8 @@ img {
 
 .hero-content {
     block-size: 48rem;
-    margin-block-start: 20px;
-    margin-inline: 20px;
+    margin-block-start: 1.25rem;
+    margin-inline: 1.25rem;
 }
 
 .card {
@@ -96,6 +98,24 @@ img {
     transition: 0.4s;
 }
 
+.loading {
+    -webkit-animation: shine 1s ease infinite;
+    animation: shine 1s ease infinite;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
+
+@-webkit-keyframes shine {
+    to {
+        background-position: right -300px top 0;
+    }
+}
+
+@keyframes shine {
+    to {
+        background-position: right -300px top 0;
+    }
+}
+
 @media screen and (min-width:768px) {
     .hero {
         background-size: 100% 584px;
@@ -105,10 +125,14 @@ img {
         background-color: transparent;
         top: 584px;
     }
-    img {
+    .card-image {
         block-size: 4.21rem;
     }
-    .hero p {
+    .hero-content {
+        margin-block-start: 2.5rem;
+        margin-inline: 4rem;
+    }
+    .hero .card-info {
         display: block;
         overflow: visible;
     }
@@ -142,15 +166,16 @@ img {
         display: flex;
         flex-direction: row;
         margin-block-start: 0;
+        margin-inline: 0;
         align-items: center;
     }
     .button {
         inline-size: auto;
     }
-    .hero h1 {
+    .hero .card-title {
         font-size: var(--headLine1);
     }
-    .hero p {
+    .hero .card-info {
         font-size: var(--body1-regular);
     }
 }
